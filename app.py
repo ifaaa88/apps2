@@ -95,7 +95,7 @@ if st.button("Tampilkan Hasil"):
 
         plt.figure(figsize=(10, 10))
         pos = nx.spring_layout(G)
-        nx.draw(G, pos, with_labels=True, node_color='skyblue', node_size=2000, font_size=10, font_color='black')
+        nx.draw(G, pos, with_labels=True, node_color='pink', node_size=2000, font_size=10, font_color='black')
         st.session_state['graph_fig'] = plt
 
         # 9. Centrality Measures
