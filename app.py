@@ -96,7 +96,8 @@ if st.button("Tampilkan Hasil"):
         plt.figure(figsize=(10, 10))
         pos = nx.spring_layout(G)
         nx.draw(G, pos, with_labels=True, node_color='pink', node_size=2000, font_size=10, font_color='black')
-        st.session_state['graph_fig'] = plt
+        graph_fig = plt.gcf()
+        st.session_state['graph_fig'] = graph_fig  # Store the figure in session state
 
         # 9. Centrality Measures
         betweenness_centrality = nx.betweenness_centrality(G)
@@ -127,6 +128,7 @@ if 'adjacency_df' in st.session_state:
     st.subheader("Adjacency Matrix")
     st.write(st.session_state['adjacency_df'])
 
+# Always display the graph figure if available
 if 'graph_fig' in st.session_state:
     st.pyplot(st.session_state['graph_fig'])
 
